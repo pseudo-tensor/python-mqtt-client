@@ -1,0 +1,17 @@
+{
+  "name": "mqtt-python-client",
+  "version": "1.0.0",
+  "description": "",
+  "generator": {
+    "renderer": "react",
+    "apiVersion": "v1",
+    "generator": ">=1.10.0 <2.0.0",
+    "supportedProtocols": ["mqtt"]
+  },
+  "dependencies": {
+    "@asyncapi/generator-react-sdk": "^0.2.25"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
+  }
+}
