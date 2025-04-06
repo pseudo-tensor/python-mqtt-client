@@ -2,11 +2,23 @@
   "name": "mqtt-python-client",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "test:clean": "rimraf test/project/client.py",
+    "test:generate": "asyncapi generate fromTemplate test/fixtures/asyncapi.yml ./ --output test/project --force-write --param server=dev",
+    "test:start": "python test/project/test.py",
+    "test": "npm run test:clean && npm run test:generate && npm run test:start"
+  },
   "generator": {
     "renderer": "react",
     "apiVersion": "v1",
     "generator": ">=1.10.0 <2.0.0",
-    "supportedProtocols": ["mqtt"]
+    "supportedProtocols": ["mqtt"],
+    "parameters": {
+      "server": {
+        "description": "The server you want to use in the code.",
+        "required": true
+      }
+    }
   },
   "dependencies": {
     "@asyncapi/generator-react-sdk": "^0.2.25"

@@ -11,12 +11,25 @@ servers:
     protocol: mqtt
 
 channels:
-  temperature/changed:
-    description: Updates the bedroom temperature in the database when the temperatures drops or goes up.
+  temperature/dropped:
+    description:  Notifies the user when the temperature drops past a certain point.
     publish:
-      operationId: temperatureChange
+      operationId: temperatureDrop
       message:
-        description: Message that is being sent when the temperature in the bedroom changes.
+        description: Message that is being sent when the temperature drops past a certain point.
+        payload:
+          type: object
+          additionalProperties: false
+          properties:
+            temperatureId:
+              type: string
+
+  temperature/risen:
+    description: Notifies the user when the temperature rises past a certain point.
+    publish:
+      operationId: temperatureRise
+      message:
+        description: Message that is being sent when the temperature rises past a certain point.
         payload:
           type: object
           additionalProperties: false
